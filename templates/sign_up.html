@@ -3,9 +3,16 @@
     <head>
     </head>
         <body>
+            {% with messages = get_flashed_messages()%}
+            {% if messages %}
+                {% for message in messages %}
+                    <b>{{message}}</b>
+                {% endfor %}
+            {%endif%}   
+            {% endwith %}
             <div>
             <h1>Sign Up Now!</h1>
-            <form>
+            <form method="POST" action="/create">
                 <input type="text" id="username" name="username" placeholder="Enter Username Here">
                 <button type="submit">Submit</button>
             </form>
@@ -13,3 +20,4 @@
             </div>
         </body>
 </html>
+
