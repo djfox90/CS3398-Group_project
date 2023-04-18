@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>    
     </head>
         <body>
+            {% with messages = get_flashed_messages()%}
+            {% if messages %}
+                {% for message in messages %}
+                    <b>{{ message }}</b>
+                {% endfor %}
+            {%endif%}   
+            {% endwith %}
             <div>
             <h1>Login Now!</h1>
-            <form >
+            <form method="POST" action="/check">
                 <input type="text" id="username" name="username" placeholder="Enter Username Here">
                 <button type="submit">login</button>
             </form>
