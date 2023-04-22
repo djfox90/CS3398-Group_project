@@ -22,20 +22,25 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+
 class Person(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    
+
+
 with app.app_context():
     db.create_all()
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return Person.query.get(int(user_id))
 
+
 @app.route("/")
 def send_to_signup():
     return flask.render_template("sign_up.html")
+
 
 @app.route("/create", methods=["GET", "POST"])
 def create_user():
@@ -48,7 +53,6 @@ def create_user():
     ).scalar()
 
     if exist:
-
         flask.flash("This username is already take please select a new one")
         return flask.redirect(flask.url_for("send_to_signup"))
     else:
@@ -60,8 +64,8 @@ def create_user():
 
 @app.route("/login")
 def send_to_login():
-
     return flask.render_template("login.html")
+
 
 @app.route("/check", methods=["GET", "POST"])
 def check_user():
@@ -80,18 +84,16 @@ def check_user():
         login_user(user)
         return flask.redirect(flask.url_for("send_to_main", user=str(person.username)))
     else:
-
         flask.flash("This username is incorrect please try again or create an account")
         return flask.redirect(flask.url_for("send_to_login"))
+
 
 @app.route("/main/<user>")
 @login_required
 def send_to_main(user):
-
     return flask.render_template(
         "main.html",
     )
-
 
 
 app.run()
