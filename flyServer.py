@@ -93,7 +93,18 @@ def check_user():
 def send_to_main(user):
     return flask.render_template(
         "main.html",
+        user=user
     )
 
+@app.route("/music-selection", methods=["GET", "POST"])
+def find_song():
+    form_data = flask.request.form
+    artist = form_data["artist"]
+    pop = form_data["pop"]
+    print(pop)
+    print(artist)
+  
+
+    return flask.redirect(flask.url_for("send_to_login"))#sent to login to test
 
 app.run()

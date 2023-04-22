@@ -3,7 +3,24 @@
     <head>
     </head>
         <body>
-            <h1>Main page</h1>
+            <h1>Welcome {{user}}</h1>
+            <form id="music" method="POST" action="/music-selection">
+                <label for ="artist">Artists</label>
+                <input type="text" id="artist" name="artist"  placeholder="select an artist">
+                <label for ="track">Tracks</label>
+                <input type="text" id="track" name="track"   placeholder="select an track">
+                <br><br>
+                <h3>Pick a genres</h3>
+                <input type="checkbox" id="pop" name="pop" value="pop">
+                <label for="pop"> pop</label><br>
+                <input type="checkbox" id="rock" name="rock" value="rock">
+                <label for="rock"> Rock</label><br>
+                <input type="checkbox" id="jazz" name="jazz" value="jazz">
+                <label for="jazz"> Jazz </label><br><br>
+                <input type="checkbox" id="country" name="country" value="country">
+                <label for="country"> Country </label><br><br>
+               
+                <button type="submit">Submit</button>
         
         </body>
 </html>
