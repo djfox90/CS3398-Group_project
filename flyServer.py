@@ -4,6 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 from random import randrange
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exists
+import spotifyAPI as sp
 from flask_login import (
     UserMixin,
     login_user,
