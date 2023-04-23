@@ -91,9 +91,20 @@ def check_user():
 @app.route("/main/<user>")
 @login_required
 def send_to_main(user):
-    return flask.render_template(
-        "main.html",
-    )
+    token = sp.request_auth()
+
+    artists = ["Drake", "Adele", "The Beatles", "Coldplay", "Bob Marley"]
+    genres = ["hip-hop", "pop/soul", "rock", "alternative/indie", "reggae"]
+    tracks = [
+        "God's Plan",
+        "Rolling in the Deep",
+        "Hey Jude",
+        "Viva La Vida",
+        "Three Little Birds",
+    ]
+    recommendations = sp.get_recommendations(token, 5, artists, genres, tracks)
+
+    return flask.render_template("main.html", recommendations=recommendations)
 
 
 app.run()
