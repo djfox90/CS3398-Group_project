@@ -11,16 +11,36 @@
                 <input type="text" id="track" name="track"   placeholder="select an track">
                 <br><br>
                 <h3>Pick a genres</h3>
-                <input type="checkbox" id="pop" name="pop" value="pop">
-                <label for="pop"> pop</label><br>
-                <input type="checkbox" id="rock" name="rock" value="rock">
-                <label for="rock"> Rock</label><br>
-                <input type="checkbox" id="jazz" name="jazz" value="jazz">
-                <label for="jazz"> Jazz </label><br><br>
-                <input type="checkbox" id="country" name="country" value="country">
-                <label for="country"> Country </label><br><br>
+                <label for ="genres">Genres</label>
+                <input type="text" id="genres" name="genres"   placeholder="select an genres">
+                <input type=hidden name="user" value="{{user}}">
+               
                
                 <button type="submit">Submit</button>
-        
+            </form>
+            <h3>Recommend Songs</h3>
+            {% if song !=  None%}
+            <p>{{song}} by {{artist}}</p>
+            <form id="music" method="POST" action="/music-database">
+                <input type=hidden name="song_name" value="{{song}}">
+                <input type=hidden name="song_artist" value="{{artist}}">
+                <input type=hidden name="user" value="{{user}}">
+                <button>Add to list</button>
+            </form>
+            
+            {% endif %}
+            <h3>Songs you found</h3>
+                
+                
+                {% for song_list in song_lists  %}
+                {% if song_list.username ==  user%}
+                    <ul>
+                        <li>{{ song_list.song}} by {{song_list.artist}} </li>
+                        
+                        <br>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                    <a id='logout' href="{{url_for('logout')}}">Logout</a>
         </body>
 </html>
