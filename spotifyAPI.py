@@ -71,7 +71,10 @@ def search_album(token, album_title):
         return None
     else:
         return json_res[0]
-
+    
+def getSongArt(token, song_title):
+    song_json = search_song(token, song_title)
+    return song_json['album']['images'][0]['url']
 
 def get_recommendations(
     token, limit=1, artists=["None"], genres=["None"], tracks=["None"]
