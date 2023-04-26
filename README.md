@@ -1,6 +1,8 @@
 # CS3398-Group_project
 https://github.com/djfox90/CS3398-Group_project
 https://docs.google.com/document/d/1FRPg5pfBk9rwxlbiwAhq6f-BrOFAbLz4t4gaa8rvaxI/edit?usp=sharing
+
+
 need fly.io link
 <need 2 pull requests links per partner>
 One thing we enjoyed about this project was being able to implement our own idea. That being said we decided on a music discovery page that implements a Spotify API
