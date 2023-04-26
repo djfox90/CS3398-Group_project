@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        
     </head>
         <body>
             <h1>Welcome {{user}}</h1>
@@ -27,7 +29,7 @@
                 <input type=hidden name="user" value="{{user}}">
                 <button>Add to list</button>
             </form>
-            
+            <img id = "art" src="{{art}}">
             {% endif %}
             <h3>Songs you found</h3>
                 
@@ -42,5 +44,6 @@
                     {% endif %}
                     {% endfor %}
                     <a id='logout' href="{{url_for('logout')}}">Logout</a>
+                    
         </body>
 </html>

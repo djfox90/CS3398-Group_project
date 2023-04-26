@@ -108,13 +108,18 @@ def send_to_main(user):
     song_name=request.args.get('song_name')
     
     song_artist=request.args.get('song_artist')
-    
+    if(song_name != "None"):
+        art=sp.getSongArt(sp.request_auth(),song_name)
+        print(art)
+    else:
+        art=None
     return flask.render_template(
         "main.html",
         user=user,
         song_lists=a,
         song=song_name,
-        artist=song_artist
+        artist=song_artist,
+        art=art
 
     )
 
