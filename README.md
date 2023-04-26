@@ -2,6 +2,18 @@
 https://github.com/djfox90/CS3398-Group_project
 https://docs.google.com/document/d/1FRPg5pfBk9rwxlbiwAhq6f-BrOFAbLz4t4gaa8rvaxI/edit?usp=sharing
 
+Pull Requests
+
+Derek
+https://github.com/djfox90/CS3398-Group_project/pull/1
+https://github.com/djfox90/CS3398-Group_project/pull/6
+
+Daniel
+https://github.com/djfox90/CS3398-Group_project/pull/4
+
+Daemon
+https://github.com/djfox90/CS3398-Group_project/pull/2
+https://github.com/djfox90/CS3398-Group_project/pull/7
 
 'need fly.io link'
 'need 2 pull requests links per partner'
