@@ -9,6 +9,17 @@ h2 {
 }
 
 h3 {
-    color: lightgray;
+    color: black;
     text-align: center;
 }
+
+h4 {
+    color: black;
+    text-align: center;
+}
+
+<style>.song-list {
+    list-style: none;
+}
+
+</style>

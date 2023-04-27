@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for gproject-py on 2023-04-25T20:29:32-05:00
+# fly.toml app configuration file generated for song-discovery on 2023-04-27T00:44:51-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "gproject-py"
+app = "song-discovery"
 kill_signal = "SIGINT"
 kill_timeout = 5
 mounts = []

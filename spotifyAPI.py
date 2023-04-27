@@ -108,5 +108,5 @@ song = get_recommendations(
     genres=["pop", "rap"],
     tracks=["gods plan"],
 )["tracks"][0]
-print(song["name"])
-print(song["artists"][0]["name"])
+# print(song["name"])
+# print(song["artists"][0]["name"])
