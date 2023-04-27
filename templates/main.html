@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-        
-    </head>
-        <body>
-            <h1>Welcome {{user}}</h1>
-            <form id="music" method="POST" action="/music-selection">
-                <label for ="artist">Artists</label>
-                <input type="text" id="artist" name="artist"  placeholder="select an artist">
-                <label for ="track">Tracks</label>
-                <input type="text" id="track" name="track"   placeholder="select an track">
-                <br><br>
-                <h3>Pick a genres</h3>
-                <label for ="genres">Genres</label>
-                <input type="text" id="genres" name="genres"   placeholder="select an genres">
-                <input type=hidden name="user" value="{{user}}">
-               
-               
-                <button type="submit">Submit</button>
-            </form>
-            <h3>Recommend Songs</h3>
-            {% if song !=  None%}
+
+<head>
+    <link rel="stylesheet" href='/static/song_display_style.css'>
+    <style>
+        .song-list {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome {{user}}</h1>
+    <h4>
+        <form id="music" method="POST" action="/music-selection">
+            <label for="artist">Artists</label>
+            <input type="text" id="artist" name="artist" placeholder="select an artist">
+            <label for="track">Tracks</label>
+            <input type="text" id="track" name="track" placeholder="select an track">
+            <br><br>
+    </h4>
+    <h2>Pick >
+        <label for="genres">Genres</label>
+        <input type="text" id="genres" name="genres" placeholder="select an genres">
+        <input type=hidden name="user" value="{{user}}">
+
+
+        <button type="submit">Submit</button>
+        </form>
+        <h3>Recommend Songs
+            {% if song != None%}
             <p>{{song}} by {{artist}}</p>
             <form id="music" method="POST" action="/music-database">
                 <input type=hidden name="song_name" value="{{song}}">
@@ -29,21 +37,22 @@
                 <input type=hidden name="user" value="{{user}}">
                 <button>Add to list</button>
             </form>
-            <img id = "art" src="{{art}}">
+        </h3>
+        {% endif %}
+        <h3>Songs you found
+
+
+            {% for song_list in song_lists %}
+            {% if song_list.username == user%}
+            <ul class="song-list">
+                <li>{{ song_list.song}} by {{song_list.artist}} </li>
+
+                <br>
+            </ul>
             {% endif %}
-            <h3>Songs you found</h3>
-                
-                
-                {% for song_list in song_lists  %}
-                {% if song_list.username ==  user%}
-                    <ul>
-                        <li>{{ song_list.song}} by {{song_list.artist}} </li>
-                        
-                        <br>
-                    </ul>
-                    {% endif %}
-                    {% endfor %}
-                    <a id='logout' href="{{url_for('logout')}}">Logout</a>
-                    
-        </body>
+            {% endfor %}
+        </h3>
+        <a id='logout' href="{{url_for('logout')}}">Logout</a>
+</body>
+
 </html>
